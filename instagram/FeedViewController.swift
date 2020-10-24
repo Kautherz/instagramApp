@@ -14,14 +14,18 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     
     var posts = [PFObject]()
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        self.tableView.insertSubview(refreshControl, at: 0)
 
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) { //to pull in post to feed that you user just created
@@ -46,7 +50,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as! PostCell
         
-        let post = posts[indexPath.row] //grab post
+        let post =  posts.reversed()[indexPath.row] //grab post
         
         let user = post["author"] as! PFUser
         cell.usernameLabel.text = user.username
@@ -60,6 +64,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         return cell
+    }
+    
+    func run(after wait: TimeInterval, closure: @escaping () -> Void) {
+        let queue = DispatchQueue.main
+        queue.asyncAfter(deadline: DispatchTime.now() + wait, execute: closure)
+    }
+    
+    @objc func onRefresh() {
+        run(after: 2) {
+               self.refreshControl.endRefreshing()
+            }
     }
     
 
