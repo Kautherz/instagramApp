@@ -2,8 +2,6 @@
 
 This is an Instagram clone with a custom Parse backend that allows a user to post photos, view a global photos feed, and add comments!
 
-Time spent: **4** hours spent in total
-
 ## User Stories
 
 The following **required** functionality is completed:
@@ -13,11 +11,6 @@ The following **required** functionality is completed:
 - [x] User can view comments on a post. (3pts)
 - [x] User can add a new comment. (5pts)
 
-The following **bonus** features are implemented:
-
-- [ ] User can add a profile picture. (2pts)
-- [ ] Profile pictures are shown for posts and comments. (2pts)
-
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
@@ -25,10 +18,6 @@ Here's a walkthrough of implemented user stories:
 <img src='http://g.recordit.co/e7A0Oq96eN.gif' width='' alt='Video Walkthrough' />
 
 # Parstagram - Part I
-
-This is an Instagram clone with a custom Parse backend that allows a user to post photos and view a global photos feed.
-
-Time spent: **5** hours spent in total
 
 ## User Stories
 
@@ -40,10 +29,6 @@ The following **required** functionality is completed:
 - [x] User can take a photo, add a caption, and post it to the server. (3pt)
 - [x] User can view the last 20 posts. (4pts)
 
-The following **bonus** features are implemented:
-
-- [ ] User can pull to refresh. (1pt)
-- [ ] User can load past tweets infinitely. (2pts)
 
 ## Video Walkthrough
 
